@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const PORT =process.env.PORT || 3001;
 const app = express();
-const appOrigin = process.env.CLIENT_URL || process.env.VERCEL_URL;
+const appOrigin = process.env.CLIENT_URL;
 const mongo = require('./config/connection');
 const MongoStore = require('connect-mongo')(session);
 
