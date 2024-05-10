@@ -30,8 +30,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "seed": "node server/seeds/seed.js",
+    "server": "node server/server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "vercel-build":"echo hello"
