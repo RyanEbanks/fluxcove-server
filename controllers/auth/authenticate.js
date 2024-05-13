@@ -12,8 +12,7 @@ router.post('/register', async (req, res, next) => {
     const { username, email, password } = req.body;
 
     try {
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const user = new User({ username, email, password: hashedPassword });
+        const user = new User({ username, email, password: password });
         await user.save();
 
         //Trying to auto-log you in
@@ -55,6 +54,7 @@ router.post('/login', async (req, res, next) => {
 
         const passwordMatch = await user.comparePassword(password);
         console.log('Password Match: ', passwordMatch);
+        console.log('Hashed Password: ', user.password);
 
         if (!passwordMatch) {
             return res.status(401).json({ message: 'Incorrect password' });
